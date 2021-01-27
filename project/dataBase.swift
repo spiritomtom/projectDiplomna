@@ -20,7 +20,7 @@ class dataBase: UIViewController{
         print("Problem with database")
         return
     }
-    let createTableQuery = "CREATE TABLE IF NOT EXISTS Locations(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR(50));"
+    let createTableQuery = "CREATE TABLE IF NOT EXISTS Locations(id INTEGER PRIMARY KEY AUTOINCREMENT,name VARCHAR(50), coordinates VARCHAR(100));"
         
         if sqlite3_exec(db, createTableQuery, nil, nil, nil) != SQLITE_OK{
             print("Error creating table")
