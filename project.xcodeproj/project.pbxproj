@@ -8,32 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		7B1B7FA187E9C18E42549182 /* Pods_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C941DEA191F31EAFE20C2B07 /* Pods_project.framework */; };
-		FC2D4C50258DF2B900A65CD0 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2D4C4F258DF2B900A65CD0 /* ScannerViewController.swift */; };
+		FC2D4C50258DF2B900A65CD0 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2D4C4F258DF2B900A65CD0 /* CollectionViewController.swift */; };
 		FC2D4C5A25C0763A00A65CD0 /* dataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2D4C5925C0763A00A65CD0 /* dataBase.swift */; };
 		FC32B5CA258220E300EF2B7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32B5C9258220E300EF2B7F /* AppDelegate.swift */; };
-		FC32B5CC258220E300EF2B7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32B5CB258220E300EF2B7F /* SceneDelegate.swift */; };
 		FC32B5CE258220E300EF2B7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32B5CD258220E300EF2B7F /* ViewController.swift */; };
 		FC32B5D1258220E300EF2B7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC32B5CF258220E300EF2B7F /* Main.storyboard */; };
 		FC32B5D4258220E300EF2B7F /* project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC32B5D2258220E300EF2B7F /* project.xcdatamodeld */; };
 		FC32B5D6258220E700EF2B7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC32B5D5258220E700EF2B7F /* Assets.xcassets */; };
 		FC32B5D9258220E700EF2B7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC32B5D7258220E700EF2B7F /* LaunchScreen.storyboard */; };
+		FC454E7125C6A44800EABB53 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC454E7025C6A44800EABB53 /* LoginViewController.swift */; };
+		FC454E7425C6AA8D00EABB53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC454E7325C6AA8D00EABB53 /* HomeViewController.swift */; };
+		FC454E8225C6BE4300EABB53 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC454E8125C6BE4300EABB53 /* PlaceViewController.swift */; };
+		FC454EAF25CC52BD00EABB53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC454EAE25CC52BD00EABB53 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		09A2FF09E4AAEBA404120EEC /* Pods-project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project.debug.xcconfig"; path = "Target Support Files/Pods-project/Pods-project.debug.xcconfig"; sourceTree = "<group>"; };
 		755A766EE60F695B8CB15753 /* Pods-project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project.release.xcconfig"; path = "Target Support Files/Pods-project/Pods-project.release.xcconfig"; sourceTree = "<group>"; };
 		C941DEA191F31EAFE20C2B07 /* Pods_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC2D4C4F258DF2B900A65CD0 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		FC2D4C4F258DF2B900A65CD0 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		FC2D4C5925C0763A00A65CD0 /* dataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dataBase.swift; sourceTree = "<group>"; };
 		FC32B5C6258220E300EF2B7F /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC32B5C9258220E300EF2B7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC32B5CB258220E300EF2B7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FC32B5CD258220E300EF2B7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FC32B5D0258220E300EF2B7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC32B5D3258220E300EF2B7F /* project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project.xcdatamodel; sourceTree = "<group>"; };
 		FC32B5D5258220E700EF2B7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC32B5D8258220E700EF2B7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC32B5DA258220E700EF2B7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC454E7025C6A44800EABB53 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FC454E7325C6AA8D00EABB53 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FC454E8125C6BE4300EABB53 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
+		FC454EAE25CC52BD00EABB53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,9 +92,8 @@
 		FC32B5C8258220E300EF2B7F /* project */ = {
 			isa = PBXGroup;
 			children = (
-				FC2D4C4F258DF2B900A65CD0 /* ScannerViewController.swift */,
+				FC454E6F25C6A43200EABB53 /* Screens */,
 				FC32B5C9258220E300EF2B7F /* AppDelegate.swift */,
-				FC32B5CB258220E300EF2B7F /* SceneDelegate.swift */,
 				FC32B5CD258220E300EF2B7F /* ViewController.swift */,
 				FC32B5CF258220E300EF2B7F /* Main.storyboard */,
 				FC32B5D5258220E700EF2B7F /* Assets.xcassets */,
@@ -96,8 +101,20 @@
 				FC32B5DA258220E700EF2B7F /* Info.plist */,
 				FC32B5D2258220E300EF2B7F /* project.xcdatamodeld */,
 				FC2D4C5925C0763A00A65CD0 /* dataBase.swift */,
+				FC454EAE25CC52BD00EABB53 /* GoogleService-Info.plist */,
 			);
 			path = project;
+			sourceTree = "<group>";
+		};
+		FC454E6F25C6A43200EABB53 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FC2D4C4F258DF2B900A65CD0 /* CollectionViewController.swift */,
+				FC454E7025C6A44800EABB53 /* LoginViewController.swift */,
+				FC454E7325C6AA8D00EABB53 /* HomeViewController.swift */,
+				FC454E8125C6BE4300EABB53 /* PlaceViewController.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC32B5D9258220E700EF2B7F /* LaunchScreen.storyboard in Resources */,
+				FC454EAF25CC52BD00EABB53 /* GoogleService-Info.plist in Resources */,
 				FC32B5D6258220E700EF2B7F /* Assets.xcassets in Resources */,
 				FC32B5D1258220E300EF2B7F /* Main.storyboard in Resources */,
 			);
@@ -214,11 +232,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC454E8225C6BE4300EABB53 /* PlaceViewController.swift in Sources */,
+				FC454E7125C6A44800EABB53 /* LoginViewController.swift in Sources */,
 				FC2D4C5A25C0763A00A65CD0 /* dataBase.swift in Sources */,
 				FC32B5CE258220E300EF2B7F /* ViewController.swift in Sources */,
+				FC454E7425C6AA8D00EABB53 /* HomeViewController.swift in Sources */,
 				FC32B5CA258220E300EF2B7F /* AppDelegate.swift in Sources */,
-				FC32B5CC258220E300EF2B7F /* SceneDelegate.swift in Sources */,
-				FC2D4C50258DF2B900A65CD0 /* ScannerViewController.swift in Sources */,
+				FC2D4C50258DF2B900A65CD0 /* CollectionViewController.swift in Sources */,
 				FC32B5D4258220E300EF2B7F /* project.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

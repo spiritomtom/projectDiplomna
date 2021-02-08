@@ -9,9 +9,12 @@ import Foundation
 import UIKit
 
 
-class ScannerViewController: UIViewController {
+class CollectionViewController: UIViewController {
 
     override func viewDidLoad() {
+        
+            performSegue(withIdentifier: "showCollection", sender: self)
+        
         super.viewDidLoad()
     }
 }

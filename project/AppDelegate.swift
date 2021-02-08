@@ -4,38 +4,51 @@
 // AppDelegate.swift
 
 import UIKit
-import FBSDKCoreKit
+import FBSDKLoginKit
+import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, LoginButtonDelegate {
     
-    func application(
-        _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-    ) -> Bool {
-          
-        ApplicationDelegate.shared.application(
-            application,
-            didFinishLaunchingWithOptions: launchOptions
-        )
-
+    var window: UIWindow?
+    
+    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    private var loggedInUser: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "loggedInUser")
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "loggedInUser")
+        }
+    }
+    
+    func application(  _ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? ) -> Bool {
+        
+        window = UIWindow()
+        
+        if loggedInUser {
+            window?.rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
+        } else {
+            window?.rootViewController = mainStoryboard.instantiateInitialViewController()
+        }
+        
+        FirebaseApp.configure()
         return true
     }
-          
-    func application(
-        _ app: UIApplication,
-        open url: URL,
-        options: [UIApplication.OpenURLOptionsKey : Any] = [:]
-    ) -> Bool {
-
-        ApplicationDelegate.shared.application(
-            app,
-            open: url,
-            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-        )
-
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        guard let result = result, let token = result.token else { return }
+        
+        if !token.isExpired {
+            loggedInUser = true
+            window?.rootViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController")
+        }
     }
-
-}
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        loggedInUser = false
+        window?.rootViewController = mainStoryboard.instantiateInitialViewController()
+    }
+ }
+ 
 
