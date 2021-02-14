@@ -9,7 +9,8 @@ import UIKit
 import MapKit
 import QRCodeScanner
 import SVProgressHUD
-
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 private let PlaceAnnotionView = "PlaceAnnotionView"
 
@@ -65,10 +66,17 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
+  
+    
+    @IBOutlet weak var cameraButton:UIButton!
     private var selectedPlace: Place?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        cameraButton.layer.zPosition = 10
+        
+        
         
         mapView.register(PlaceView.self, forAnnotationViewWithReuseIdentifier: PlaceAnnotionView)
         
@@ -105,7 +113,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     private func loadAndShowPlaces() {
         SVProgressHUD.show(withStatus: "Loading...")
-        
+      
         loadPlaces { places, error in
             SVProgressHUD.dismiss()
             
@@ -148,6 +156,7 @@ extension HomeViewController: QRCodeScanViewControllerDelegate {
         print("value: \(value)")
         /// TODO:- find place by id and open it
         /// openPlace(place)
+        
     }
 }
 

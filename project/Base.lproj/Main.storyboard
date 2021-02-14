@@ -49,6 +49,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RmA-IK-dtT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WTa-yb-DdE" id="qU0-QZ-T71"/>
+                                </connections>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENk-bk-Vil">
                                 <rect key="frame" x="348" y="60" width="50" height="50"/>
                                 <constraints>
@@ -63,21 +69,6 @@
                                     <action selector="didTapCamera:" destination="WTa-yb-DdE" eventType="touchUpInside" id="kdc-nN-2zN"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RmA-IK-dtT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <connections>
-                                    <outlet property="delegate" destination="WTa-yb-DdE" id="qU0-QZ-T71"/>
-                                </connections>
-                            </mapView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PLG-24-3we">
-                                <rect key="frame" x="0.0" y="852" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="CollectionButton" image="tray" catalog="system" id="7xm-jQ-zNe">
-                                        <color key="tintColor" systemColor="systemGreenColor"/>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="puZ-Dm-AgB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -90,8 +81,10 @@
                             <constraint firstAttribute="bottom" secondItem="RmA-IK-dtT" secondAttribute="bottom" id="ujY-ZB-SII"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="duL-xv-GQr"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="cameraButton" destination="ENk-bk-Vil" id="Lro-DJ-6me"/>
                         <outlet property="mapView" destination="RmA-IK-dtT" id="dyJ-Ar-a0p"/>
                         <segue destination="47J-d7-Zoe" kind="presentation" identifier="showHome" id="qbS-kw-flA"/>
                         <segue destination="GbI-aH-wST" kind="show" identifier="showPlace" id="w1U-j7-aoJ"/>
@@ -106,7 +99,7 @@
             <objects>
                 <tableViewController id="GbI-aH-wST" customClass="PlaceViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UoG-5b-f23">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -158,12 +151,8 @@
     </scenes>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
-        <image name="tray" catalog="system" width="128" height="88"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

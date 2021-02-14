@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loginButton.permissions = ["email"]
         loginButton.delegate = (UIApplication.shared.delegate as? LoginButtonDelegate)
     }
     
