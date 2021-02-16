@@ -18,6 +18,7 @@
 		FC454E7425C6AA8D00EABB53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC454E7325C6AA8D00EABB53 /* HomeViewController.swift */; };
 		FC454E8225C6BE4300EABB53 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC454E8125C6BE4300EABB53 /* PlaceViewController.swift */; };
 		FC454EAF25CC52BD00EABB53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC454EAE25CC52BD00EABB53 /* GoogleService-Info.plist */; };
+		FCA321BF25DC524C0068B41F /* PictureSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA321BE25DC524C0068B41F /* PictureSharingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FC454E7325C6AA8D00EABB53 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FC454E8125C6BE4300EABB53 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		FC454EAE25CC52BD00EABB53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FCA321BE25DC524C0068B41F /* PictureSharingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureSharingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				FC454E7025C6A44800EABB53 /* LoginViewController.swift */,
 				FC454E7325C6AA8D00EABB53 /* HomeViewController.swift */,
 				FC454E8125C6BE4300EABB53 /* PlaceViewController.swift */,
+				FCA321BE25DC524C0068B41F /* PictureSharingViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA321BF25DC524C0068B41F /* PictureSharingViewController.swift in Sources */,
 				FC454E8225C6BE4300EABB53 /* PlaceViewController.swift in Sources */,
 				FC454E7125C6A44800EABB53 /* LoginViewController.swift in Sources */,
 				FC454E7425C6AA8D00EABB53 /* HomeViewController.swift in Sources */,

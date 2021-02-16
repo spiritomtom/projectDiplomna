@@ -331,6 +331,7 @@ PODS:
   - PromisesObjC (1.2.12)
   - QR-Code-Scanner-iOS (1.0.0)
   - SVProgressHUD (2.2.5)
+  - SwiftyCam (4.0.0)
 
 DEPENDENCIES:
   - FBSDKLoginKit
@@ -338,6 +339,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - QR-Code-Scanner-iOS
   - SVProgressHUD
+  - SwiftyCam
 
 SPEC REPOS:
   trunk:
@@ -361,6 +363,7 @@ SPEC REPOS:
     - PromisesObjC
     - QR-Code-Scanner-iOS
     - SVProgressHUD
+    - SwiftyCam
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -383,7 +386,8 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   QR-Code-Scanner-iOS: 6633d5157a50467d66ab357af2432b576c702e5e
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyCam: 6e57914771d972fbe508e759dc9d0150a44a93fd
 
-PODFILE CHECKSUM: 4656737d7159047dd0d37d531b58e7a2ed67534a
+PODFILE CHECKSUM: ed1288aaea97ce009f02549723cc9447b96515b2
 
 COCOAPODS: 1.10.0

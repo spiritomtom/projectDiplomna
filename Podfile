@@ -11,4 +11,5 @@ target 'project' do
     pod "SVProgressHUD"
     pod 'Firebase/Firestore'
     pod 'Firebase/Core'
+    pod 'SwiftyCam'
 end
