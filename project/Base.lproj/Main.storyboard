@@ -133,21 +133,54 @@
                                     <segue destination="WTa-yb-DdE" kind="show" id="DCi-SV-9GP"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AyN-dv-5i9">
+                                <rect key="frame" x="64" y="120" width="306" height="423"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="423" id="7Xt-9z-zKX"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ov-M3-B95">
+                                <rect key="frame" x="335" y="20" width="40" height="30"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" systemColor="systemGreenColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="sharePicture:" destination="uIV-BN-sNX" eventType="touchUpInside" id="NV6-pP-Vj1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZsO-3f-8YT">
+                                <rect key="frame" x="173.5" y="618" width="75" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <state key="normal" title="Pick Image">
+                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonOnPressBrowsePicture:" destination="uIV-BN-sNX" eventType="touchUpInside" id="fXr-oS-pxM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A04-6f-k1s"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZsO-3f-8YT" firstAttribute="top" secondItem="AyN-dv-5i9" secondAttribute="bottom" constant="75" id="86j-3m-BnD"/>
+                            <constraint firstItem="9Ov-M3-B95" firstAttribute="top" secondItem="A04-6f-k1s" secondAttribute="top" constant="20" id="FuB-jS-y1w"/>
                             <constraint firstItem="kGs-q7-xiH" firstAttribute="top" secondItem="A04-6f-k1s" secondAttribute="top" constant="695" id="G9i-Dn-HVO"/>
                             <constraint firstItem="A04-6f-k1s" firstAttribute="trailing" secondItem="kGs-q7-xiH" secondAttribute="trailing" constant="180" id="HEg-mG-gOM"/>
+                            <constraint firstItem="AyN-dv-5i9" firstAttribute="centerX" secondItem="x48-gn-qqn" secondAttribute="centerX" constant="10" id="Iae-9O-hCh"/>
+                            <constraint firstItem="AyN-dv-5i9" firstAttribute="top" secondItem="A04-6f-k1s" secondAttribute="top" constant="120" id="MW9-jr-TLb"/>
+                            <constraint firstItem="AyN-dv-5i9" firstAttribute="centerX" secondItem="ZsO-3f-8YT" secondAttribute="centerX" constant="6" id="Pcs-bI-h1s"/>
                             <constraint firstItem="LDv-x9-AnD" firstAttribute="leading" secondItem="x48-gn-qqn" secondAttribute="leadingMargin" id="So3-Nv-baO"/>
+                            <constraint firstItem="A04-6f-k1s" firstAttribute="trailing" secondItem="9Ov-M3-B95" secondAttribute="trailing" constant="39" id="Tzx-fc-0iv"/>
                             <constraint firstItem="A04-6f-k1s" firstAttribute="bottom" secondItem="kGs-q7-xiH" secondAttribute="bottom" constant="18" id="a7l-78-Jqw"/>
                             <constraint firstItem="LDv-x9-AnD" firstAttribute="top" secondItem="A04-6f-k1s" secondAttribute="top" id="nV9-Mu-7Ku"/>
                             <constraint firstItem="kGs-q7-xiH" firstAttribute="leading" secondItem="A04-6f-k1s" secondAttribute="leading" constant="192" id="osX-on-rwR"/>
+                            <constraint firstItem="AyN-dv-5i9" firstAttribute="leading" secondItem="A04-6f-k1s" secondAttribute="leading" constant="64" id="wxq-Ds-0Sq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y3v-FK-nZM"/>
                     <connections>
                         <outlet property="camButton" destination="kGs-q7-xiH" id="4Xv-3H-3Tn"/>
+                        <outlet property="img" destination="AyN-dv-5i9" id="rxB-e6-mOE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQF-Tw-t9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -196,6 +229,9 @@
         </systemColor>
         <systemColor name="quaternaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
