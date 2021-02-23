@@ -76,5 +76,9 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Request to use your camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To Record Audio With Video</string>
+	<key>FirebaseAutomaticScreenReportingEnabled</key>
+	<false/>
 </dict>
 </plist>

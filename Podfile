@@ -9,7 +9,8 @@ target 'project' do
     pod 'FBSDKLoginKit'
     pod 'QR-Code-Scanner-iOS'
     pod "SVProgressHUD"
-    pod 'Firebase/Firestore'
+    
     pod 'Firebase/Core'
     pod 'SwiftyCam'
+    pod 'FirebaseFirestoreSwift'
 end
