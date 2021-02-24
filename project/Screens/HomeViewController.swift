@@ -255,9 +255,7 @@ extension HomeViewController: QRCodeScanViewControllerDelegate {
         viewController.dismiss(animated: true, completion: nil)
         
         print("value: \(value)")
-        /// TODO:- find place by id and open it
-        /// openPlace(place)
-        
+                
     }
 }
 

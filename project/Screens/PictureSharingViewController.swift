@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import SwiftyCam
-class PictureSharingViewController: SwiftyCamViewController, SwiftyCamViewControllerDelegate{
+class PictureSharingViewController:UIViewController{
     
     
     @IBOutlet weak var img: UIImageView!
@@ -17,7 +17,7 @@ class PictureSharingViewController: SwiftyCamViewController, SwiftyCamViewContro
 
         
     
-    @IBOutlet weak var camButton: SwiftyCamButton!
+  
     let imagePicker = UIImagePickerController()
     
 override func viewDidLoad(){
@@ -28,27 +28,19 @@ override func viewDidLoad(){
     
     
     super.viewDidLoad()
-    cameraDelegate = self
+   
     imagePicker.delegate = self
-        isPressed(camButton)
+        
         
     
     
     
     
 }
-    @IBAction func isPressed(_ sender: SwiftyCamButton) {
-        print("ALA BALA")
-        takePhoto()
-        
-    }
-    func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
-         // Called when takePhoto() is called or if a SwiftyCamButton initiates a tap gesture
-         // Returns a UIImage captured from the current session
-    }
+   
     
     @IBAction func buttonOnPressBrowsePicture(_ sender: Any) {
-        imagePicker.sourceType = .photoLibrary
+        imagePicker.sourceType = .camera
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
     }
@@ -65,7 +57,7 @@ override func viewDidLoad(){
         
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
         activityViewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-    activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+  //  activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
 
         
        present(activityViewController, animated: true, completion: nil)

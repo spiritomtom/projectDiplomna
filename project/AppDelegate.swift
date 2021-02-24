@@ -12,7 +12,7 @@ import FirebaseFirestore
 class AppDelegate: UIResponder, UIApplicationDelegate, LoginButtonDelegate {
     
     var window: UIWindow?
-    
+    var db: Firestore!
     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     private var loggedInUser: Bool {
         get {
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginButtonDelegate {
     
     func application(  _ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? ) -> Bool {
         FirebaseApp.configure()
-        
+        db = Firestore.firestore()
         
         
         //let db = Firestore.firestore()
@@ -74,6 +74,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginButtonDelegate {
                         if let email = (result as? [String: Any])?["email"] as? String{
                         
                             UserDefaults.standard.setValue(email, forKey: "email")
+                            self.db.collection("users").document(email).setData([
+                                "email" : "\(email)",
+                                "userPlaces":" "
+                            ],merge: true)
                             //UserDefaults.standard.string(forKey: "email")!   kato iskam da getna email-a
                             
                         }
