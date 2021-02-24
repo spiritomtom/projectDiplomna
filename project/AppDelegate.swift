@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginButtonDelegate {
     var window: UIWindow?
     var db: Firestore!
     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    
     private var loggedInUser: Bool {
         get {
             UserDefaults.standard.bool(forKey: "loggedInUser")
@@ -78,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginButtonDelegate {
                                 "email" : "\(email)",
                                 "userPlaces":" "
                             ],merge: true)
-                            //UserDefaults.standard.string(forKey: "email")!   kato iskam da getna email-a
+                            UserDefaults.standard.string(forKey: "email") // kato iskam da getna email-a
                             
                         }
                     })

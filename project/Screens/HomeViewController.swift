@@ -93,9 +93,12 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
+    
     var db: Firestore!
     var all_places: [Place] = []
+  
     
+   
     
     @IBOutlet weak var cameraButton:UIButton!
     private var selectedPlace: Place?
@@ -109,13 +112,15 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
         
         
        getAllPlacesFromDb() { places in
-            
+        
            }
+        print("All Places:\(all_places)")
+        
         mapView.register(PlaceView.self, forAnnotationViewWithReuseIdentifier: PlaceAnnotionView)
         
         loadAndShowPlaces()
        
-        print("Count:\(all_places.count)")
+        
         
     }
     
@@ -145,7 +150,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
                   //completionBlock(place)
         
                 }
-    
+  
     private func getAllPlacesFromDb(completionBlock: @escaping ([Place]) -> Void){
             // [START get_multiple_all]
         var places: [Place] = []
@@ -161,11 +166,14 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
                             counter += 1
                             
                             places.append(place)
+                        
                             if counter == doc_count{
                                 completionBlock(places)
                             }
                            }
                     }
+                   
+                    
                 }
             }
            
@@ -253,11 +261,61 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
 extension HomeViewController: QRCodeScanViewControllerDelegate {
     func qrCodeScanViewController(_ viewController: QRCodeScanViewController, didScanQRCode value: String) {
         viewController.dismiss(animated: true, completion: nil)
-        
+        let email = UserDefaults.standard.string(forKey: "email")
         print("value: \(value)")
+       
+        
+        db.collection("places").whereField("id",isEqualTo: "\(value)").getDocuments(){(querySnapshot,err) in
+            if let err = err{
+                print("Error: \(err)")
                 
+            }else{
+                for document in querySnapshot!.documents{
+                    let result = Result{
+                    
+                        try document.data(as: Place.self)
+                                }
+                            switch result {
+                            case .success(let place):
+                                if let place = place {
+                                    
+                                    self.db.collection("users").document(email!).updateData([
+                                        "userPlaces": FieldValue.arrayUnion([place.name]),
+                                        "lastVisited": FieldValue.serverTimestamp()
+                                    ])
+                                //return place
+                                } else {
+                          
+                                    print("Document does not exist")
+                                }
+                            case .failure(let error):
+                                
+                                print("Error decoding city: \(error)")
+                            }
+                        }
+                }
+            }
+        }
+       /* for place: Place in all_places{
+            if place.id == value{
+                db.collection("users").document(email!).updateData([
+                    
+                    "userPlaces": FieldValue.arrayUnion(["\(place.name)"]),
+                    "lastVisited": FieldValue.serverTimestamp(),
+                ]){
+                    err in
+                    if let err = err{
+                        print("error: \(err)")
+                        
+                    }else{
+                        print("Success")
+                    }
+                }
+            }
+            
+        }*/
     }
-}
+
 
 
 
