@@ -155,7 +155,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
             // [START get_multiple_all]
         var places: [Place] = []
         var counter = 0
-        let doc_count = 2
+        let doc_count = 3
             db.collection("places").getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -209,12 +209,13 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     private func loadAndShowPlaces() {
         SVProgressHUD.show(withStatus: "Loading...")
-      
-        getAllPlacesFromDb { places in
-            SVProgressHUD.dismiss()
-            
-           
-                self.mapView.showAnnotations(places, animated: true)
+              
+                getAllPlacesFromDb { places in
+                    SVProgressHUD.dismiss()
+                    
+                    NotificationManager.shared.setup(with: places)
+                    
+                    self.mapView.showAnnotations(places, animated: true)
                 
             
             
@@ -239,14 +240,10 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     
     private func loadPlaces(completion: @escaping ([Place]?, Error?) -> Void) {
-        ///TODO:- load from internet and show
+      
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            /*
-             if success call completion([places], nil)
-             if error call completion(nil, error)
-             */
-            
+           
             
             let place1 = Place(coordinate: .init(latitude: 42.665201899532036, longitude:  23.378899623703767), id: "addd", info: "This is Mr. Bricolague", name: "Test", rating: 5.5, lon:23.378899623703767, lat: 45.665291899532036 )
             let place2 = Place(coordinate: .init(latitude: 42.68507949329909, longitude:  23.36799912642389), id: "vvv", info: "This is an ancient building", name: "Place 3", rating: 2.5,lon:23.36799912642389, lat: 42.68507949329909)
@@ -280,7 +277,8 @@ extension HomeViewController: QRCodeScanViewControllerDelegate {
                                 if let place = place {
                                     
                                     self.db.collection("users").document(email!).updateData([
-                                        "userPlaces": FieldValue.arrayUnion([place.name]),
+                                        "userPlaces": FieldValue.arrayUnion([place.name
+                                        ]),
                                         "lastVisited": FieldValue.serverTimestamp()
                                     ])
                                 //return place
@@ -296,24 +294,7 @@ extension HomeViewController: QRCodeScanViewControllerDelegate {
                 }
             }
         }
-       /* for place: Place in all_places{
-            if place.id == value{
-                db.collection("users").document(email!).updateData([
-                    
-                    "userPlaces": FieldValue.arrayUnion(["\(place.name)"]),
-                    "lastVisited": FieldValue.serverTimestamp(),
-                ]){
-                    err in
-                    if let err = err{
-                        print("error: \(err)")
-                        
-                    }else{
-                        print("Success")
-                    }
-                }
-            }
-            
-        }*/
+     
     }
 
 

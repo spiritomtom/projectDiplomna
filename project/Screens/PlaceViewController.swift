@@ -7,9 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
-
-
-
+import SwiftGoogleTranslate
 
 
 private let PlaceTableViewCellIdentifier = "PlaceTableViewCellIdentifier"
@@ -20,12 +18,21 @@ class PlaceViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.allowsSelection = true
+        self.tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: PlaceTableViewCellIdentifier)
     }
     
+   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        SwiftGoogleTranslate.shared.translate(place.info, "en", "es") { (text, error) in
+          if let t = text {
+            print("Succesful translation ---- \(t)")
+          }
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,6 +59,7 @@ class PlaceViewController: UITableViewController {
         
         return cell
     }
+   
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 45

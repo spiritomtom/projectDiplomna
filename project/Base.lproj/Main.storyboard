@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWz-sx-hiy" customClass="FBSDKLoginButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWz-sx-hiy" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="78" y="426" width="261" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="EBE-qX-60H"/>
@@ -27,9 +28,9 @@
                         <viewLayoutGuide key="safeArea" id="qYH-zk-qAs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dWz-sx-hiy" firstAttribute="centerY" secondItem="tSK-cD-juk" secondAttribute="centerY" id="i1c-St-fpb"/>
-                            <constraint firstItem="dWz-sx-hiy" firstAttribute="leading" secondItem="qYH-zk-qAs" secondAttribute="leading" constant="50" id="lf3-A5-rpz"/>
-                            <constraint firstItem="qYH-zk-qAs" firstAttribute="trailing" secondItem="dWz-sx-hiy" secondAttribute="trailing" constant="50" id="ug8-eI-tgv"/>
+                            <constraint firstItem="dWz-sx-hiy" firstAttribute="centerY" secondItem="tSK-cD-juk" secondAttribute="centerY" constant="27.5" id="i1c-St-fpb"/>
+                            <constraint firstItem="dWz-sx-hiy" firstAttribute="leading" secondItem="qYH-zk-qAs" secondAttribute="leading" constant="78" id="lf3-A5-rpz"/>
+                            <constraint firstItem="qYH-zk-qAs" firstAttribute="trailing" secondItem="dWz-sx-hiy" secondAttribute="trailing" constant="75" id="ug8-eI-tgv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fp3-Mm-WWb"/>
@@ -81,18 +82,28 @@
                                     <action selector="didTapCamera:" destination="WTa-yb-DdE" eventType="touchUpInside" id="kdc-nN-2zN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oV-Fr-8IL">
+                                <rect key="frame" x="20" y="733" width="21" height="22"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <state key="normal" image="cube.box.fill" catalog="system"/>
+                                <connections>
+                                    <segue destination="kW6-3S-ufk" kind="show" id="hs5-Wd-fQW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="puZ-Dm-AgB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="i3c-mT-BDC" firstAttribute="trailing" secondItem="o3X-OU-kRg" secondAttribute="trailingMargin" id="0fT-02-Im9"/>
                             <constraint firstItem="RmA-IK-dtT" firstAttribute="top" secondItem="o3X-OU-kRg" secondAttribute="top" id="3GF-6v-LEQ"/>
+                            <constraint firstItem="4oV-Fr-8IL" firstAttribute="leading" secondItem="o3X-OU-kRg" secondAttribute="leadingMargin" id="AQf-aT-y2x"/>
                             <constraint firstItem="puZ-Dm-AgB" firstAttribute="trailing" secondItem="ENk-bk-Vil" secondAttribute="trailing" constant="16" id="LAU-oT-Xei"/>
                             <constraint firstItem="ENk-bk-Vil" firstAttribute="top" secondItem="puZ-Dm-AgB" secondAttribute="top" constant="16" id="QtL-lv-nP1"/>
                             <constraint firstItem="RmA-IK-dtT" firstAttribute="leading" secondItem="o3X-OU-kRg" secondAttribute="leading" id="Qwn-i6-YJw"/>
                             <constraint firstItem="puZ-Dm-AgB" firstAttribute="bottom" secondItem="i3c-mT-BDC" secondAttribute="bottom" constant="4" id="i7f-Go-3ci"/>
                             <constraint firstAttribute="trailing" secondItem="RmA-IK-dtT" secondAttribute="trailing" id="rE4-LF-YU5"/>
                             <constraint firstAttribute="bottom" secondItem="RmA-IK-dtT" secondAttribute="bottom" id="ujY-ZB-SII"/>
+                            <constraint firstItem="4oV-Fr-8IL" firstAttribute="bottom" secondItem="i3c-mT-BDC" secondAttribute="bottom" id="zym-Bx-ipa"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -107,7 +118,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ak0-yC-IPl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1189.8550724637682" y="-674.33035714285711"/>
+            <point key="canvasLocation" x="1123" y="-717"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CKx-Hv-Aly">
+            <objects>
+                <viewController id="kW6-3S-ufk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y8A-ce-UH7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hIU-oh-nFm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zsl-8G-fPX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VEC-ko-SeJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="572" y="32"/>
         </scene>
         <!--Picture Sharing View Controller-->
         <scene sceneID="x9z-WN-TP4">
@@ -142,9 +169,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZsO-3f-8YT">
-                                <rect key="frame" x="173.5" y="618" width="75" height="30"/>
+                                <rect key="frame" x="172" y="618" width="78" height="30"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <state key="normal" title="Pick Image">
+                                <state key="normal" title="Take Image">
                                     <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                 </state>
                                 <connections>
@@ -169,6 +196,7 @@
                     <navigationItem key="navigationItem" id="y3v-FK-nZM"/>
                     <connections>
                         <outlet property="img" destination="AyN-dv-5i9" id="rxB-e6-mOE"/>
+                        <outlet property="takeImageButton" destination="ZsO-3f-8YT" id="fVD-TK-ACU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQF-Tw-t9F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -190,6 +218,19 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UQ3-Dz-FJJ" id="CHL-g2-Bcq">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utq-9x-xmU">
+                                            <rect key="frame" x="20" y="13" width="46" height="30"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="translateOnTouch:" destination="GbI-aH-wST" eventType="touchUpInside" id="zBS-mP-GHl"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="utq-9x-xmU" firstAttribute="leading" secondItem="CHL-g2-Bcq" secondAttribute="leadingMargin" id="Eg3-PY-Dzy"/>
+                                        <constraint firstItem="utq-9x-xmU" firstAttribute="top" secondItem="CHL-g2-Bcq" secondAttribute="topMargin" constant="2" id="vVx-6H-eA7"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -210,7 +251,11 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <image name="cube.box.fill" catalog="system" width="128" height="124"/>
         <image name="qr_code" width="272" height="272"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

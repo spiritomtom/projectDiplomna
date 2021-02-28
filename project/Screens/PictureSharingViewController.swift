@@ -7,37 +7,24 @@
 
 import Foundation
 import UIKit
-import SwiftyCam
-class PictureSharingViewController:UIViewController{
-    
-    
+
+class PictureSharingViewController: UIViewController {
     @IBOutlet weak var img: UIImageView!
     
-    let image = UIImage(named: "Image")
-
-        
+   
     
-  
+    var image: UIImage?
+    
     let imagePicker = UIImagePickerController()
     
-override func viewDidLoad(){
+    @IBOutlet weak var takeImageButton: UIButton!
     
-    
-    let imageToShare = [ img! ]
-    
-    
-    
-    super.viewDidLoad()
-   
-    imagePicker.delegate = self
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imagePicker.delegate = self
         
-        
-    
-    
-    
-    
-}
-   
+        takeImageButton.layer.cornerRadius = 15
+    }
     
     @IBAction func buttonOnPressBrowsePicture(_ sender: Any) {
         imagePicker.sourceType = .camera
@@ -46,19 +33,11 @@ override func viewDidLoad(){
     }
     
     @IBAction func sharePicture(_ sender: Any) {
-       
+        guard let image = image else { return }
         
-        UIGraphicsBeginImageContext(img.frame.size)
-        img.layer.render(in: UIGraphicsGetCurrentContext()!)
-        print("Sharing image")
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        
-        let activityViewController = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
-        
+        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
         activityViewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-  //  activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
-
         
        present(activityViewController, animated: true, completion: nil)
     }
@@ -68,8 +47,10 @@ extension PictureSharingViewController: UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            img.image = image
+            self.img.image = image
+            self.image = image
         }
+        
         dismiss(animated: true, completion: nil)
     }
 }

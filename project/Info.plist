@@ -80,5 +80,7 @@
 	<string>To Record Audio With Video</string>
 	<key>FirebaseAutomaticScreenReportingEnabled</key>
 	<false/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>loc</string>
 </dict>
 </plist>

@@ -19,6 +19,7 @@
 		FC454E8225C6BE4300EABB53 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC454E8125C6BE4300EABB53 /* PlaceViewController.swift */; };
 		FC454EAF25CC52BD00EABB53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC454EAE25CC52BD00EABB53 /* GoogleService-Info.plist */; };
 		FCA321BF25DC524C0068B41F /* PictureSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA321BE25DC524C0068B41F /* PictureSharingViewController.swift */; };
+		FCD3E2E925E83C9500ABE23C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD3E2E825E83C9500ABE23C /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FC454E8125C6BE4300EABB53 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		FC454EAE25CC52BD00EABB53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FCA321BE25DC524C0068B41F /* PictureSharingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureSharingViewController.swift; sourceTree = "<group>"; };
+		FCD3E2E825E83C9500ABE23C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				FC454E7325C6AA8D00EABB53 /* HomeViewController.swift */,
 				FC454E8125C6BE4300EABB53 /* PlaceViewController.swift */,
 				FCA321BE25DC524C0068B41F /* PictureSharingViewController.swift */,
+				FCD3E2E825E83C9500ABE23C /* NotificationManager.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				FC454E7425C6AA8D00EABB53 /* HomeViewController.swift in Sources */,
 				FC32B5CA258220E300EF2B7F /* AppDelegate.swift in Sources */,
 				FC2D4C50258DF2B900A65CD0 /* CollectionViewController.swift in Sources */,
+				FCD3E2E925E83C9500ABE23C /* NotificationManager.swift in Sources */,
 				FC32B5D4258220E300EF2B7F /* project.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
