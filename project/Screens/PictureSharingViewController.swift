@@ -11,8 +11,6 @@ import UIKit
 class PictureSharingViewController: UIViewController {
     @IBOutlet weak var img: UIImageView!
     
-   
-    
     var image: UIImage?
     
     let imagePicker = UIImagePickerController()

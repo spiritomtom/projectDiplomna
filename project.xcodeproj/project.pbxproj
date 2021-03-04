@@ -19,6 +19,7 @@
 		FC454E7425C6AA8D00EABB53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC454E7325C6AA8D00EABB53 /* HomeViewController.swift */; };
 		FC454E8225C6BE4300EABB53 /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC454E8125C6BE4300EABB53 /* PlaceViewController.swift */; };
 		FC454EAF25CC52BD00EABB53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC454EAE25CC52BD00EABB53 /* GoogleService-Info.plist */; };
+		FC65B20225F15AF900AD3E8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC65B20025F15AF900AD3E8A /* Localizable.strings */; };
 		FCA321BF25DC524C0068B41F /* PictureSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA321BE25DC524C0068B41F /* PictureSharingViewController.swift */; };
 		FCD3E2E925E83C9500ABE23C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD3E2E825E83C9500ABE23C /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,10 @@
 		FC454E7325C6AA8D00EABB53 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FC454E8125C6BE4300EABB53 /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		FC454EAE25CC52BD00EABB53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FC65B20125F15AF900AD3E8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FC65B20425F15B2000AD3E8A /* bg-BG */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "bg-BG"; path = "bg-BG.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		FC65B20625F15BE600AD3E8A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FC90979E25F159970029A8B9 /* bg-BG */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "bg-BG"; path = "bg-BG.lproj/Main.strings"; sourceTree = "<group>"; };
 		FCA321BE25DC524C0068B41F /* PictureSharingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureSharingViewController.swift; sourceTree = "<group>"; };
 		FCD3E2E825E83C9500ABE23C /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +108,7 @@
 				FC32B5D2258220E300EF2B7F /* project.xcdatamodeld */,
 				FC454EAE25CC52BD00EABB53 /* GoogleService-Info.plist */,
 				FC00204325F11BDB009853CC /* keys.rtf */,
+				FC65B20025F15AF900AD3E8A /* Localizable.strings */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -163,6 +169,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"bg-BG",
 			);
 			mainGroup = FC32B5BD258220E200EF2B7F;
 			productRefGroup = FC32B5C7258220E300EF2B7F /* Products */;
@@ -180,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC32B5D9258220E700EF2B7F /* LaunchScreen.storyboard in Resources */,
+				FC65B20225F15AF900AD3E8A /* Localizable.strings in Resources */,
 				FC454EAF25CC52BD00EABB53 /* GoogleService-Info.plist in Resources */,
 				FC32B5D6258220E700EF2B7F /* Assets.xcassets in Resources */,
 				FC32B5D1258220E300EF2B7F /* Main.storyboard in Resources */,
@@ -254,6 +262,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FC32B5D0258220E300EF2B7F /* Base */,
+				FC90979E25F159970029A8B9 /* bg-BG */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -266,6 +275,16 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		FC65B20025F15AF900AD3E8A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC65B20125F15AF900AD3E8A /* Base */,
+				FC65B20425F15B2000AD3E8A /* bg-BG */,
+				FC65B20625F15BE600AD3E8A /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -273,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -334,6 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

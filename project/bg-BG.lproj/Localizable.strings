@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  project
+
+  Created by Petko Dapchev on 4.03.21.
+  
+*/
+
+"near_place_notification_title" = "Близо те до място!";
+"near_place_notification_body" = "%@ е близо до теб! Посети и полуИ медал!";
+
+"place_details_information" = "Инфомарция за това място: %@";
+
+"collecton_view_visited_places" = "Посетени места";
+"collection_view_achievements" = "Награди";

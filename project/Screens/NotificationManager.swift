@@ -49,15 +49,15 @@ class NotificationManager: NSObject, CLLocationManagerDelegate, UNUserNotificati
             region.notifyOnExit = true
             let trigger = UNLocationNotificationTrigger(region: region, repeats: false)
             let content = UNMutableNotificationContent()
-            content.title = "You're near to a place!"
-            content.body = "\(place.name) is near you! Go and check to win badge!"
-            let notificationRequest = UNNotificationRequest(identifier: place.name, content: content, trigger: trigger)
+            content.title = "near_place_notification_title".localized
+            content.body = "near_place_notification_body".localized(with: [place.name])
+            let notificationRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
             center.add(notificationRequest, withCompletionHandler: nil)
         }
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.sound, .sound])
+        completionHandler([.sound, .badge])
     }
     
 }

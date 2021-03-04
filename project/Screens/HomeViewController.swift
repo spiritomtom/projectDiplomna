@@ -25,8 +25,6 @@ class Place: NSObject, MKAnnotation, Decodable{
     var rating: Float
     var lon: Double
     var lat: Double
-    
-    
    
     init(coordinate: CLLocationCoordinate2D, id: String,info: String, name: String, rating: Float, lon: Double, lat: Double) {
         self.coordinate = coordinate
@@ -39,8 +37,8 @@ class Place: NSObject, MKAnnotation, Decodable{
        
         super.init()
     }
+    
     required init(from decoder: Decoder) throws {
-        
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(String.self, forKey: .id)
         info = try values.decode(String.self, forKey: .info)
@@ -49,13 +47,11 @@ class Place: NSObject, MKAnnotation, Decodable{
         lon = try values.decode(Double.self, forKey: .lon)
         coordinate = CLLocationCoordinate2D(latitude: self.lat, longitude: self.lon)
         rating = try values.decode(Float.self, forKey: .rating)
-        
-        
-      }
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case id, name,coordinate, rating,info,lat, lon//NOTICE THIS
-      }
-
+    }
 }
 
 class PlaceView: MKPinAnnotationView {
@@ -95,11 +91,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     
     var db: Firestore!
-    var all_places: [Place] = []
+    var places: [Place] = []
   
-    
-   
-    
     @IBOutlet weak var cameraButton:UIButton!
     private var selectedPlace: Place?
     
@@ -111,23 +104,18 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
         cameraButton.layer.zPosition = 10
         
         
-       getAllPlacesFromDb() { places in
-        
-           }
-        print("All Places:\(all_places)")
+        getAllPlacesFromDb() { [weak self] places in
+            self?.places = places
+       }
         
         mapView.register(PlaceView.self, forAnnotationViewWithReuseIdentifier: PlaceAnnotionView)
         
         loadAndShowPlaces()
-       
-        
-        
     }
     
     private func getPlaceFromDb(documentName: String,completionBlock: @escaping (Place) -> Void ){
         let docRef = db.collection("places").document(documentName)
        
-       // var place2: Place
         docRef.getDocument { (document, error) in
             let result = Result {
                 try document!.data(as: Place.self)
@@ -196,10 +184,10 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let placeViewController = segue.destination as? PlaceViewController,
-              let place = selectedPlace else { return }
-        
-        placeViewController.place = place
+        if let placeViewController = segue.destination as? PlaceViewController,
+              let place = selectedPlace {
+            placeViewController.place = place
+        }
     }
     
     private func openPlace(_ place: Place) {
@@ -209,49 +197,15 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     private func loadAndShowPlaces() {
         SVProgressHUD.show(withStatus: "Loading...")
-              
-                getAllPlacesFromDb { places in
-                    SVProgressHUD.dismiss()
-                    
-                    NotificationManager.shared.setup(with: places)
-                    
-                    self.mapView.showAnnotations(places, animated: true)
-                
+        
+        getAllPlacesFromDb { places in
+            SVProgressHUD.dismiss()
             
+            NotificationManager.shared.setup(with: places)
             
-          
+            self.mapView.showAnnotations(places, animated: true)
         }
     }
-  
-    /*private func getPlace(){
-        let docRef = db.collection("places").document("TUES")
-        
-        docRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                        print("Document data: \(dataDescription)")
-                    } else {
-                        print("Document does not exist")
-                    }
-                }
-    }*/
-    
-   
-    
-    
-    private func loadPlaces(completion: @escaping ([Place]?, Error?) -> Void) {
-      
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-           
-            
-            let place1 = Place(coordinate: .init(latitude: 42.665201899532036, longitude:  23.378899623703767), id: "addd", info: "This is Mr. Bricolague", name: "Test", rating: 5.5, lon:23.378899623703767, lat: 45.665291899532036 )
-            let place2 = Place(coordinate: .init(latitude: 42.68507949329909, longitude:  23.36799912642389), id: "vvv", info: "This is an ancient building", name: "Place 3", rating: 2.5,lon:23.36799912642389, lat: 42.68507949329909)
-            
-            completion([place1, place2], nil)
-        }
-    }
-    
     
 }
 

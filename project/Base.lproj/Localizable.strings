@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  project
+
+  Created by Petko Dapchev on 4.03.21.
+  
+*/
+
+"near_place_notification_title" = "You're near to a place!";
+"near_place_notification_body" = "%@ is near you! Go and check to win badge!";
+
+"place_details_information" = "Information about this place: %@";
+
+"collecton_view_visited_places" = "Visited places";
+"collection_view_achievements" = "Achievements";

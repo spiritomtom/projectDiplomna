@@ -74,7 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginButtonDelegate {
                         //let id = result.valueForKey("id") as! String
                             
                         if let email = (result as? [String: Any])?["email"] as? String{
-                        
                             UserDefaults.standard.setValue(email, forKey: "email")
                             self.db.collection("users").document(email).setData([
                                 "email" : "\(email)",
@@ -94,3 +93,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginButtonDelegate {
  }
  
 
+extension String {
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
+    
+    func localized(with arguments: [CVarArg]) -> String {
+        return String(format: localized, locale: nil, arguments: arguments)
+    }
+    
+}
