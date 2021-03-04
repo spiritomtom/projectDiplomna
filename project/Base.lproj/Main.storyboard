@@ -120,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="1123" y="-717"/>
         </scene>
-        <!--View Controller-->
+        <!--Place View Controller-->
         <scene sceneID="CKx-Hv-Aly">
             <objects>
-                <viewController id="kW6-3S-ufk" sceneMemberID="viewController">
+                <viewController id="kW6-3S-ufk" customClass="PlaceViewController" customModule="project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y8A-ce-UH7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

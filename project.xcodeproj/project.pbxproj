@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7B1B7FA187E9C18E42549182 /* Pods_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C941DEA191F31EAFE20C2B07 /* Pods_project.framework */; };
+		FC00204425F11BDB009853CC /* keys.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FC00204325F11BDB009853CC /* keys.rtf */; };
 		FC2D4C50258DF2B900A65CD0 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC2D4C4F258DF2B900A65CD0 /* CollectionViewController.swift */; };
 		FC32B5CA258220E300EF2B7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32B5C9258220E300EF2B7F /* AppDelegate.swift */; };
 		FC32B5D1258220E300EF2B7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC32B5CF258220E300EF2B7F /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		09A2FF09E4AAEBA404120EEC /* Pods-project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project.debug.xcconfig"; path = "Target Support Files/Pods-project/Pods-project.debug.xcconfig"; sourceTree = "<group>"; };
 		755A766EE60F695B8CB15753 /* Pods-project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-project.release.xcconfig"; path = "Target Support Files/Pods-project/Pods-project.release.xcconfig"; sourceTree = "<group>"; };
 		C941DEA191F31EAFE20C2B07 /* Pods_project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC00204325F11BDB009853CC /* keys.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = keys.rtf; sourceTree = "<group>"; };
 		FC2D4C4F258DF2B900A65CD0 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		FC32B5C6258220E300EF2B7F /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC32B5C9258220E300EF2B7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				FC32B5DA258220E700EF2B7F /* Info.plist */,
 				FC32B5D2258220E300EF2B7F /* project.xcdatamodeld */,
 				FC454EAE25CC52BD00EABB53 /* GoogleService-Info.plist */,
+				FC00204325F11BDB009853CC /* keys.rtf */,
 			);
 			path = project;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				FC454EAF25CC52BD00EABB53 /* GoogleService-Info.plist in Resources */,
 				FC32B5D6258220E700EF2B7F /* Assets.xcassets in Resources */,
 				FC32B5D1258220E300EF2B7F /* Main.storyboard in Resources */,
+				FC00204425F11BDB009853CC /* keys.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -137,7 +137,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
                             if let place = place {
                                 
                               completionBlock(place)
-                            //return place
+                            
                             } else {
                       
                                 print("Document does not exist")
