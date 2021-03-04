@@ -13,9 +13,13 @@ private let PlaceTableViewCellIdentifier = "PlaceTableViewCellIdentifier"
 class PlaceViewController: UITableViewController {
     
     var place: Place!
+    var db : Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
         
         tableView.allowsSelection = true
         tableView.separatorStyle = .none
@@ -104,7 +108,16 @@ class PlaceViewController: UITableViewController {
         let sheet = UIAlertController(title: "Rate", message: "Choose rating", preferredStyle: .actionSheet)
         
         let ratePlace: (Int) -> Void = { rating in
-            self.place.rating = (self.place.rating + Float(rating)) / 2
+           self.place.rating = (self.place.rating + Float(rating)) / 2
+            self.db.collection("places").document(self.place.name).updateData([
+                "rating":self.place.rating
+            ]){
+                err in
+                if let err = err{
+                    print("Error updating!: \(err)")
+                }
+                
+            }
             self.tableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
         }
         
