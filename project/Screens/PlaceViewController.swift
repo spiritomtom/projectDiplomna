@@ -70,7 +70,7 @@ class PlaceViewController: UITableViewController {
             case 0:
                 cell.textLabel?.text = "Coordinates: \(place.coordinate.latitude), \(place.coordinate.longitude))"
             case 1:
-                cell.textLabel?.text = "Name: \(place.name)"
+                cell.textLabel?.text = "name_of_object".localized(with: [place.name])
             case 2:
                 cell.textLabel?.text = "Rating: \(place.rating) out of 5"
             case 3:
@@ -83,7 +83,7 @@ class PlaceViewController: UITableViewController {
       
         if indexPath.section == 1 {
             let cell = UITableViewCell()
-            cell.textLabel?.text = indexPath.row == 0 ? "Change language" : "Rate place"
+            cell.textLabel?.text = indexPath.row == 0 ? " " : "rate_place".localized
             cell.textLabel?.font = .systemFont(ofSize: 14)
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = .systemBlue
@@ -105,7 +105,7 @@ class PlaceViewController: UITableViewController {
     
     
     private func showRatePlaceActionSheet() {
-        let sheet = UIAlertController(title: "Rate", message: "Choose rating", preferredStyle: .actionSheet)
+        let sheet = UIAlertController(title: "Rate", message: "choose_rating".localized, preferredStyle: .actionSheet)
         
         let ratePlace: (Int) -> Void = { rating in
            self.place.rating = (self.place.rating + Float(rating)) / 2

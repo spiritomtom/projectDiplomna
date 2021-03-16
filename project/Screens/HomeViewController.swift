@@ -233,9 +233,9 @@ extension HomeViewController: QRCodeScanViewControllerDelegate {
                                     self.db.collection("users").document(email!).updateData([
                                         "userPlaces": FieldValue.arrayUnion([place.name
                                         ]),
-                                        "lastVisited": FieldValue.serverTimestamp()
+                                    "lastVisited": FieldValue.arrayUnion([Date()])
                                     ])
-                                //return place
+                                
                                 } else {
                           
                                     print("Document does not exist")

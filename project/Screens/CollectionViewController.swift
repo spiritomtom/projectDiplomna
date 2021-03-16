@@ -15,10 +15,10 @@ private let PlaceTableViewCellIdentifier = "PlaceTableViewCellIdentifier"
 
 class MyUser: Decodable{
     var email: String 
-    var lastVisited: Timestamp
+    var lastVisited: [Timestamp]
     var userPlaces: [String]
     
-    init(email: String, lastVisited: Timestamp, userPlaces: [String] ) {
+    init(email: String, lastVisited: [Timestamp], userPlaces: [String] ) {
         self.email = email
         self.lastVisited = lastVisited
         self.userPlaces = userPlaces
@@ -104,14 +104,14 @@ class CollectionViewController: UIViewController, UITableViewDelegate, UITableVi
             
             let chooseColor: (Int) -> (UIColor, String) = { numberOfPlaces in
                 if numberOfPlaces == 1 {
-                    return (.brown, "Bronze medal")
+                    return (.brown, "bronze_medal".localized)
                 }
                 
                 if numberOfPlaces == 2 {
-                    return (.lightGray, "Silver medal")
+                    return (.lightGray, "silver_medal".localized)
                 }
                 
-                return (.yellow, "Gold medal")
+                return (.yellow, "gold_medal".localized)
             }
             
             let (color, text) = chooseColor(userPlacesNames.count)

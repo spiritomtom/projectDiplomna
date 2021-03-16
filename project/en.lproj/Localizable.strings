@@ -11,7 +11,11 @@
 "near_place_notification_body" = "%@ is near you! Go and check to win badge!";
 
 "place_details_information" = "Information about this place: %@";
-
+"name_of_object" = "Name: %@";
 "collecton_view_visited_places" = "Visited places";
 "collection_view_achievements" = "Achievements";
-
+"bronze_medal" = "Bronze medal";
+"silver_medal" = "Silver medal";
+"gold_medal" = "Gold medal";
+"choose_rating" = "Choose rating";
+"rate_place" = "Rate place";

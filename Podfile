@@ -6,7 +6,6 @@ target 'project' do
   use_frameworks!
     pod 'FBSDKLoginKit'
     pod 'QR-Code-Scanner-iOS'
-    pod 'SwiftGoogleTranslate'
     pod "SVProgressHUD"
     pod 'Firebase/Core'
     pod 'FirebaseFirestoreSwift'
