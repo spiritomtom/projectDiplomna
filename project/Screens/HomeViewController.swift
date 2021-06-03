@@ -25,7 +25,7 @@ class Place: NSObject, MKAnnotation, Decodable{
     var rating: Float
     var lon: Double
     var lat: Double
-   
+    
     init(coordinate: CLLocationCoordinate2D, id: String,info: String, name: String, rating: Float, lon: Double, lat: Double) {
         self.coordinate = coordinate
         self.id = id
@@ -34,7 +34,7 @@ class Place: NSObject, MKAnnotation, Decodable{
         self.info = info
         self.lon = lon
         self.lat = lat
-       
+        
         super.init()
     }
     
@@ -59,7 +59,7 @@ class PlaceView: MKPinAnnotationView {
     var tapHandler: (() -> Void)?
     
     let label = UILabel()
-   
+    
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
@@ -92,7 +92,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     var db: Firestore!
     var places: [Place] = []
-  
+    
     @IBOutlet weak var cameraButton:UIButton!
     private var selectedPlace: Place?
     
@@ -106,7 +106,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
         
         getAllPlacesFromDb() { [weak self] places in
             self?.places = places
-       }
+        }
         
         mapView.register(PlaceView.self, forAnnotationViewWithReuseIdentifier: PlaceAnnotionView)
         
@@ -115,57 +115,52 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     private func getPlaceFromDb(documentName: String,completionBlock: @escaping (Place) -> Void ){
         let docRef = db.collection("places").document(documentName)
-       
+        
         docRef.getDocument { (document, error) in
             let result = Result {
                 try document!.data(as: Place.self)
-                        }
-                        switch result {
-                        case .success(let place):
-                            if let place = place {
-                                
-                              completionBlock(place)
-                            
-                            } else {
-                      
-                                print("Document does not exist")
-                            }
-                        case .failure(let error):
-                            
-                            print("Error decoding city: \(error)")
-                        }
-                    }
-                  //completionBlock(place)
-        
+            }
+            switch result {
+            case .success(let place):
+                if let place = place {
+                    
+                    completionBlock(place)
+                    
+                } else {
+                    
+                    print("Document does not exist")
                 }
-  
+            case .failure(let error):
+                
+                print("Error decoding city: \(error)")
+            }
+        }
+        //completionBlock(place)
+        
+    }
+    
     private func getAllPlacesFromDb(completionBlock: @escaping ([Place]) -> Void){
-            // [START get_multiple_all]
+        // [START get_multiple_all]
         var places: [Place] = []
         var counter = 0
-        let doc_count = 3
-            db.collection("places").getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                       
-                            self.getPlaceFromDb(documentName: document.documentID) { place in
-                            counter += 1
-                            
-                            places.append(place)
+        db.collection("places").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.getPlaceFromDb(documentName: document.documentID) { place in
+                        counter += 1
+                        places.append(place)
                         
-                            if counter == doc_count{
-                                completionBlock(places)
-                            }
-                           }
+                        if counter == querySnapshot!.documents.count {
+                            completionBlock(places)
+                        }
                     }
-                   
-                    
                 }
             }
-           
         }
+        
+    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let view = mapView.dequeueReusableAnnotationView(withIdentifier: PlaceAnnotionView, for: annotation) as! PlaceView
@@ -185,7 +180,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let placeViewController = segue.destination as? PlaceViewController,
-              let place = selectedPlace {
+           let place = selectedPlace {
             placeViewController.place = place
         }
     }
@@ -214,7 +209,7 @@ extension HomeViewController: QRCodeScanViewControllerDelegate {
         viewController.dismiss(animated: true, completion: nil)
         let email = UserDefaults.standard.string(forKey: "email")
         print("value: \(value)")
-       
+        
         
         db.collection("places").whereField("id",isEqualTo: "\(value)").getDocuments(){(querySnapshot,err) in
             if let err = err{
@@ -223,33 +218,32 @@ extension HomeViewController: QRCodeScanViewControllerDelegate {
             }else{
                 for document in querySnapshot!.documents{
                     let result = Result{
-                    
+                        
                         try document.data(as: Place.self)
-                                }
-                            switch result {
-                            case .success(let place):
-                                if let place = place {
-                                    
-                                    self.db.collection("users").document(email!).updateData([
-                                        "userPlaces": FieldValue.arrayUnion([place.name
-                                        ]),
-                                    "lastVisited": FieldValue.arrayUnion([Date()])
-                                    ])
-                                
-                                } else {
-                          
-                                    print("Document does not exist")
-                                }
-                            case .failure(let error):
-                                
-                                print("Error decoding city: \(error)")
-                            }
+                    }
+                    switch result {
+                    case .success(let place):
+                        if let place = place {
+                            self.db.collection("users").document(email!).updateData([
+                                "userPlaces": FieldValue.arrayUnion([place.name
+                                ]),
+                                "lastVisited": FieldValue.arrayUnion([Date()])
+                            ])
+                            
+                        } else {
+                            
+                            print("Document does not exist")
                         }
+                    case .failure(let error):
+                        
+                        print("Error decoding city: \(error)")
+                    }
                 }
             }
         }
-     
     }
+    
+}
 
 
 

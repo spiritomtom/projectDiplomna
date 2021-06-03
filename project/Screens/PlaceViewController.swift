@@ -30,19 +30,15 @@ class PlaceViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-   
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 4 : 2
+        return section == 0 ? 4 : 1
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.section == 1 else { return }
         
         if indexPath.row == 0 {
-            // change language
-        }
-        
-        if indexPath.row == 1 {
             showRatePlaceActionSheet()
         }
     }
@@ -56,7 +52,7 @@ class PlaceViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             tableView.rowHeight = UITableView.automaticDimension
-                    tableView.estimatedRowHeight = 100
+            tableView.estimatedRowHeight = 100
             let cell = tableView.dequeueReusableCell(withIdentifier: PlaceTableViewCellIdentifier, for: indexPath)
             
             cell.textLabel?.font = .systemFont(ofSize: 17, weight: .semibold)
@@ -80,10 +76,10 @@ class PlaceViewController: UITableViewController {
             
             return cell
         }
-      
+        
         if indexPath.section == 1 {
             let cell = UITableViewCell()
-            cell.textLabel?.text = indexPath.row == 0 ? " " : "rate_place".localized
+            cell.textLabel?.text = "rate_place".localized
             cell.textLabel?.font = .systemFont(ofSize: 14)
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = .systemBlue
@@ -108,7 +104,7 @@ class PlaceViewController: UITableViewController {
         let sheet = UIAlertController(title: "Rate", message: "choose_rating".localized, preferredStyle: .actionSheet)
         
         let ratePlace: (Int) -> Void = { rating in
-           self.place.rating = (self.place.rating + Float(rating)) / 2
+            self.place.rating = (self.place.rating + Float(rating)) / 2
             self.db.collection("places").document(self.place.name).updateData([
                 "rating":self.place.rating
             ]){

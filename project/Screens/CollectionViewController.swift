@@ -128,7 +128,7 @@ class CollectionViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UITableViewHeaderFooterView()
         
-        view.textLabel?.text = section == 0 ? "collecton_view_visited_places".localized : "collection_view_achievements".localized //sakrateb if/else ako e true Places ako e false Achievements
+        view.textLabel?.text = section == 0 ? "collecton_view_visited_places".localized : "collection_view_achievements".localized //sakraten if/else ako e true Places ako e false Achievements
         view.backgroundColor = .systemGroupedBackground
         
         return view
