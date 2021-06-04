@@ -37,7 +37,7 @@ class PictureSharingViewController: UIViewController {
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
         activityViewController.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         
-       present(activityViewController, animated: true, completion: nil)
+        present(activityViewController, animated: true, completion: nil)
     }
 }
 

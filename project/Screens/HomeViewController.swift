@@ -101,7 +101,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
-        cameraButton.layer.zPosition = 10
+        //cameraButton.layer.zPosition = 10
         
         
         getAllPlacesFromDb() { [weak self] places in
@@ -135,7 +135,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
                 print("Error decoding city: \(error)")
             }
         }
-        //completionBlock(place)
+     
         
     }
     

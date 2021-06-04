@@ -76,8 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginButtonDelegate {
                         if let email = (result as? [String: Any])?["email"] as? String{
                             UserDefaults.standard.setValue(email, forKey: "email")
                             self.db.collection("users").document(email).setData([
-                                "email" : "\(email)",
-                                "userPlaces":" "
+                                "email" : "\(email)"    
+                              //  "userPlaces":""
                             ],merge: true)
                             UserDefaults.standard.string(forKey: "email") // kato iskam da getna email-a
                             

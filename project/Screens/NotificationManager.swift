@@ -24,7 +24,7 @@ class NotificationManager: NSObject, CLLocationManagerDelegate, UNUserNotificati
         center.removeAllPendingNotificationRequests()
         
         center.delegate = self
-
+        
         center.requestAuthorization(options: [.alert, .sound], completionHandler: { granted, _ in
             guard granted  else { return }
             self.addNotificationTriggers(for: places)
